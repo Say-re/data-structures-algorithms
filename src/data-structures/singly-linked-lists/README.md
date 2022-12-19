@@ -24,6 +24,18 @@
 #### ***General functionality***
 > *When the get method is called, the node at the index provided is returned. If the index provided is less than 0 or greater than the length of the singly linked list the method will return null.*
 
+### ***1.2 Insert***
+
+#### Parameters
+  - index - index to insert new node
+  - val - value for new Node
+
+#### Return values
+  - boolean
+
+#### ***General functionality***
+> *When the insert method is called, a new node is created from the value provided, the node prior to the index provided is retreived with its current 'next' property being assigned to the new node's 'next' property and the new node is assigned to the retreived node. If the index provided is less than 0 or greater than the length of the singly linked list the method will return false.*
+
 ### ***1.2 Pop***
 
 #### Parameters
