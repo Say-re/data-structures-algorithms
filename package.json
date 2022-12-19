@@ -11,5 +11,8 @@
     "url": "git@github.personal:Say-re/data-structures-algorithms.git"
   },
   "author": "Sayre",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "flow": "^0.2.3"
+  }
 }

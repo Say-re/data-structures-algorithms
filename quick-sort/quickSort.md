@@ -6,6 +6,8 @@
 
   *Parameters of pivot helper function*
     * arr: Array of length > 1
+    * startIndex: default to 0
+    * endIndex: arr.length - 1
   *Return value of the pivot helper function*
     * index: Final index of pivot element
 
