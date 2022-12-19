@@ -13,7 +13,18 @@
 
 ## ***Section 1 - Methods***
 
-### ***1.1 Push***
+### ***1.1 Pop***
+
+#### Parameters
+  - None
+
+#### Return values
+  - Previous tail value
+
+#### ***General functionality***
+> *When the pop method is called, the last node in the singly linked list is removed and returned as the result of the function. The second to last item in the list is then made to be the new tail by updating it's next attribute to null and setting the tail property of the singly linked list to the node. If no head is present (no values present), method returns undefined.*
+
+### ***1.2 Push***
 
 #### Parameters
   - val: value to be added to the end of the linked list
