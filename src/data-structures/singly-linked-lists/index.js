@@ -11,6 +11,17 @@ class SinglyLinkedList {
     this.head = null;
     this.tail = null;
   }
+
+  get(index) {
+    if (index < 0 || index >= length) return null;
+
+    let selectedNode = this.head;
+    for (let i = 0; i < index; i++) {
+      selectedNode = selectedNode.next;
+    }
+    return selectedNode;
+  }
+
   pop(val) {
     if (!this.head) return undefined;
     const tail = this.tail;

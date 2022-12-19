@@ -13,6 +13,17 @@
 
 ## ***Section 1 - Methods***
 
+### ***1.1 Get***
+
+#### Parameters
+  - index - index of value to be retreived (first value = index 0)
+
+#### Return values
+  - Node at specified index
+
+#### ***General functionality***
+> *When the get method is called, the node at the index provided is returned. If the index provided is less than 0 or greater than the length of the singly linked list the method will return null.*
+
 ### ***1.1 Pop***
 
 #### Parameters
