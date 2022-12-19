@@ -58,7 +58,18 @@
 #### ***General functionality***
 > *When the push method is called and supplied with a single value it is appended to the end of the singly linked list. If no head is present (no values present), set value to both the head and tail of the list. Otherwise, make passed value the 'next' attribute of the current tail, reassign the tail property of the singly linked list to that value, and increment the length property of the singly linked list by 1.*
 
-### ***1.4 Set***
+### ***1.4 Remove***
+
+#### Parameters
+  - index - index of node to be removed
+
+#### Return values
+  - removedNode - node removed from the list at the index provided
+
+#### ***General functionality***
+> *When the remove method is called, retrieve the node at the provided index, remove it from the list, and return the removed node. If index is less than 0 or greater than or equal to the length of the singly linked list, do nothing and return undefined.*
+
+### ***1.5 Set***
 
 #### Parameters
   - index - index of node to be updated
