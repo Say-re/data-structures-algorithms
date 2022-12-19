@@ -69,6 +69,17 @@
 #### ***General functionality***
 > *When the remove method is called, retrieve the node at the provided index, remove it from the list, and return the removed node. If index is less than 0 or greater than or equal to the length of the singly linked list, do nothing and return undefined.*
 
+### ***1.4 Reverse***
+
+#### Parameters
+  - None
+
+#### Return values
+  - this - the reversed singly linked list
+
+#### ***General functionality***
+> *When the reverse method is called, it takes the entire singly linked list and reverses it in place (without making a copy). If the referenced instance does not have have values, the method returns undefined.*
+
 ### ***1.5 Set***
 
 #### Parameters

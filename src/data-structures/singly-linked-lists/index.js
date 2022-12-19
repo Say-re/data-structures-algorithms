@@ -37,7 +37,7 @@ class SinglyLinkedList {
     const prevNextVal = prevValue.next;
     newNode.next = prevNextVal;
     prevValue.next(newNode);
-    this.length ++;
+    this.length++;
     return true;
   }
 
@@ -52,7 +52,7 @@ class SinglyLinkedList {
     }
     this.tail = pre;
     this.tail.next = null;
-    this.length --;
+    this.length--;
     return currentNode;
   }
 
@@ -65,18 +65,36 @@ class SinglyLinkedList {
       this.tail.next = node;
       this.tail = node;
     }
-    this.length ++;
+    this.length++;
   }
 
   remove(index) {
     if (index < 0 || index >= this.length) return undefined;
+
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
+
     const node = this.get(inde - 1);
     const removedNode = node.next;
     node.next = removedNode.next;
-    this.length --;
+    this.length--;
     return removedNode;
+  }
+
+  reverse() {
+    if (!this.head) return undefined;
+    let currentNode = this.head;
+    this.head = this.tail;
+    this.tail = currentNode
+    let next;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      let next = currentNode.next;
+      currentNode.next = prev;
+      prev = currentNode;
+      currentNode = next;
+    }
+    return this;
   }
 
   set(val, index) {
@@ -92,7 +110,7 @@ class SinglyLinkedList {
 
     const prevHead = this.head;
     this.head = prevHead.next;
-    this.length --;
+    this.length--;
 
     return prevHead;
   }
@@ -107,7 +125,7 @@ class SinglyLinkedList {
     const prevHead = this.head;
     this.head = newNode;
     this.head.next = prevHead;
-    this.length ++;
+    this.length++;
 
     return this;
   }
