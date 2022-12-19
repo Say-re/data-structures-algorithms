@@ -14,7 +14,7 @@
   11. Singly Linked Lists
   12. Doubly Linked Lists
   13. Stacks
-  14. Queues
+  14. QueuesquickSort
   15. Binary Search Trees
   16. Tree Traversal
   17. Binary Heaps
