@@ -1,0 +1,15 @@
+{
+  "name": "data-structures-algorithms",
+  "version": "1.0.0",
+  "description": "General exploration of data structures/algorithms and how to apply each concept to javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.personal:Say-re/data-structures-algorithms.git"
+  },
+  "author": "Sayre",
+  "license": "MIT"
+}
