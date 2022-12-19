@@ -24,7 +24,7 @@
 #### ***General functionality***
 > *When the get method is called, the node at the index provided is returned. If the index provided is less than 0 or greater than the length of the singly linked list the method will return null.*
 
-### ***1.1 Pop***
+### ***1.2 Pop***
 
 #### Parameters
   - None
@@ -35,7 +35,7 @@
 #### ***General functionality***
 > *When the pop method is called, the last node in the singly linked list is removed and returned as the result of the function. The second to last item in the list is then made to be the new tail by updating it's next attribute to null and setting the tail property of the singly linked list to the node. If no head is present (no values present), method returns undefined.*
 
-### ***1.2 Push***
+### ***1.3 Push***
 
 #### Parameters
   - val: value to be added to the end of the linked list
@@ -46,7 +46,19 @@
 #### ***General functionality***
 > *When the push method is called and supplied with a single value it is appended to the end of the singly linked list. If no head is present (no values present), set value to both the head and tail of the list. Otherwise, make passed value the 'next' attribute of the current tail, reassign the tail property of the singly linked list to that value, and increment the length property of the singly linked list by 1.*
 
-### ***1.3 Shift***
+### ***1.4 Set***
+
+#### Parameters
+  - index - index of node to be updated
+  - val - value to update node with
+
+#### Return values
+  - boolean
+
+#### ***General functionality***
+> *When the set method is called, utilize the get method to get the node at the specified index, update the node's value to be the 'val' present in the parameters, and return true. If no node is found at the specified index, do nothing and return false.*
+
+### ***1.5 Shift***
 
 #### Parameters
   - None
@@ -57,7 +69,7 @@
 #### ***General functionality***
 > *When the shift method is called, remove the first node (the head) from the singly linked list, reassign the previous head's next value as the new head, and return the previous head as the output for the method. If no head is present (no nodes present), do nothing and return undefined.*
 
-### ***1.4 Unshift***
+### ***1.6 Unshift***
 
 #### Parameters
   - val - new element to be added to linked list

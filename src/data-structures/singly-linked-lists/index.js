@@ -49,6 +49,14 @@ class SinglyLinkedList {
     this.length ++;
   }
 
+  set(val, index) {
+    const node = this.get(index);
+    if (!node) return null;
+
+    node.val = val;
+    return true;
+  }
+
   shift() {
     if (!this.head) return undefined;
 
