@@ -40,23 +40,11 @@ export const quickSort = ({
   right = arr.length - 1,
 }) => {
   if (left < right) {
-    let pivotIndex = pivot({
-      arr,
-      startIndex: left,
-      endIndex: right,
-    });
+    let pivotIndex = pivot({ arr, startIndex: left, endIndex: right });
     // Sort Left side of remaining array
-    quickSort({
-      arr,
-      left,
-      right: pivotIndex - 1,
-    });
+    quickSort({ arr, left, right: pivotIndex - 1 });
     // Sort right side of remaining array
-    quickSort({
-      arr,
-      left: pivotIndex + 1,
-      right,
-    });
+    quickSort({ arr, left: pivotIndex + 1, right });
   }
   return arr;
 };
