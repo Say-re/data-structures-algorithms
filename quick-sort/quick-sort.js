@@ -4,6 +4,12 @@ type PivotHelperProps = {
   startIndex: Number,
 }
 
+type QuickSortProps = {
+  arr: Array<Number>,
+  left: Number,
+  right: Number,
+}
+
 export const pivotHelper = ({
   arr,
   endIndex = arr.length + 1,
@@ -28,8 +34,31 @@ export const pivotHelper = ({
   return pivotIndex;
 };
 
-export const quickSort = () => {
-
+export const quickSort = ({
+  arr,
+  left = 0,
+  right = arr.length - 1,
+}) => {
+  if (left < right) {
+    let pivotIndex = pivot({
+      arr,
+      startIndex: left,
+      endIndex: right,
+    });
+    // Sort Left side of remaining array
+    quickSort({
+      arr,
+      left,
+      right: pivotIndex - 1,
+    });
+    // Sort right side of remaining array
+    quickSort({
+      arr,
+      left: pivotIndex + 1,
+      right,
+    });
+  }
+  return arr;
 };
 
 export default quickSort;
