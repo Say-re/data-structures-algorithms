@@ -32,4 +32,15 @@
   - highestDigitCount: highest number of digits found within a single element of the numbers array
 
 ### ***General functionality***
-> *From a given array of numbers, the function will return the highest digit count of any number within the array. The function currently assumes base 10 numbers, but could be expanded to function with other bases. For example, if you passed the numbers [92837, 389493, 9, 3479685] this function will return 7.*
+> *From a given array of numbers, the function will return the highest digit count of any number within the array. The function currently assumes base 10 numbers, but could be expanded to function with other bases. For example, if you passed the numbers `highestDigitCount([92837, 389493, 9, 3479685])` this function will return 7 as this is the total number of digits found in 3479685, the largest number.*
+
+## ***1.4 Description of radixSort() function***
+
+### Parameters
+  - numbers: array of numbers
+
+### Return value
+  - newNumbers: array of numbers sorted
+
+### ***General functionality***
+> *From a given array of numbers, the function will sort the array from smallest to largest. The function currently assumes base 10 numbers, but could be expanded to function with other bases. For example, if you passed the numbers `radixCount([92837, 389493, 9, 3479685, 23, 299, 10, 58])` this function will return `[9, 10, 23, 58, 299, 92837, 389493, 3479685]`, a fully sorted array.*
