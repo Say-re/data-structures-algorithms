@@ -1,7 +1,7 @@
 # ***Singly Linked Lists***
 
 ## ***Description***
-> A singly linked list is a data structure consisting of nodes and connected one after the other from the head (start) to the tail (end). The list itself contains three attributes, the head, the tail, and the length of the list. The head and tail are the first and last node in the data collection, respectively. Singly linked lists excel at removal and insertion of elements O(1) - constant time, but have O(n) time complexity when trying to access specific values within the collection as they do not contain an index for accessing the values individually and require traversing from the head until you reach the desired node.
+> A singly linked list is a data structure consisting of nodes connected one after the other from the head (start) to the tail (end). The list itself contains three attributes, the head, the tail, and the length of the list. The head and tail are the first and last node in the data collection, respectively. Singly linked lists excel at removal and insertion of elements O(1) - constant time, but have O(n) time complexity when trying to access specific values within the collection as they do not contain an index for accessing the values individually and require traversing from the head until you reach the desired node.
 
 ## ***Important Terminology***
   *Head*: The first node (element) within the linked list.  
