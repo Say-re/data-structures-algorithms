@@ -25,7 +25,6 @@ export class Queue {
     if (this.first === this.last) {
       this.last = null;
     }
-    
     this.first = this.first.next;
     this.size--;
     return returnVal.value;
@@ -36,10 +35,11 @@ export class Queue {
     if (this.size === 0) {
       this.first = newNode;
       this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
     }
 
-    this.last.next = newNode;
-    this.last = newNode;
     this.size++;
     return this;
   }
