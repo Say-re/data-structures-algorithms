@@ -3,12 +3,12 @@ export class Node {
   next: any;
   value: any;
   constructor(value: any) {
-    this.next = null;
     this.value = value;
+    this.next = null;
   }
 }
 
-class Queue {
+export class Queue {
   first: any;
   last: any;
   size: number;
@@ -21,14 +21,14 @@ class Queue {
 
   dequeue(): any {
     if (this.size <= 0) return null;
+    const returnVal = this.first;
     if (this.first === this.last) {
       this.last = null;
     }
     
-    const returnVal = this.first;
     this.first = this.first.next;
     this.size--;
-    return returnVal;
+    return returnVal.value;
   }
 
   enqueue(value: any): this {

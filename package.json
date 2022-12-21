@@ -8,14 +8,14 @@
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
     },
     "collectCoverageFrom": [
-      "src/*"
+      "src/**"
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 97,
+        "statements": 95,
         "branches": 90,
-        "functions": 97,
-        "lines": 97
+        "functions": 95,
+        "lines": 95
       }
     },
     "globals": {

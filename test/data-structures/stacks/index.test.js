@@ -30,11 +30,25 @@ describe('src/data-structures/stacks/index.js', () => {
       .toEqual('30 by 30');
     expect(stack.size).toEqual(2);
   });
-  it('Verified null response of pop method when no values present in stack', () => {
+  it('Verifies null response of pop method when no values present in stack', () => {
     const stack = new Stack();
     const response = stack.pop();
 
     expect(response)
+      .toEqual(null);
+  });
+  it('Verifies response of pop method when 1 value is present in the stack', () => {
+    const stack = new Stack();
+    stack.push('Blue carbon');
+    expect(stack.first.value)
+      .toEqual('Blue carbon');
+    expect(stack.last.value)
+      .toEqual('Blue carbon');
+    stack.pop();
+
+    expect(stack.first)
+      .toEqual(null);
+    expect(stack.last)
       .toEqual(null);
   });
 });
