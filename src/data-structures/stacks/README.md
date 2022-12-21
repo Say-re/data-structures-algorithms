@@ -34,3 +34,11 @@
 
 #### ***General Decription***
 > Calling the push method on a stack instance adds the passed value as the 'first' node in the stack. This is due to the LIFO methodology and needing the last item added to be the first one removed.
+
+## ***Section 2 - Big O notation***
+
+### ***2.1 - Access, insertion, removal, and searching***
+> *Access* - O(N)
+> *Insertion* - O(1)
+> *Removal* - O(1)
+> *Searching* - O(N)
