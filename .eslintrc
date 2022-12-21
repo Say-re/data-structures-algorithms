@@ -87,6 +87,7 @@
         "allowElseIf": false
       }
     ],
+    "no-param-reassign": 0,
     "no-plusplus": [
       0
     ],
