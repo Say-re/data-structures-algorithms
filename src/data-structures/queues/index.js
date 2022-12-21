@@ -1,45 +1,46 @@
 // @flow
 export class Node {
-  value: any;
   next: any;
-
-  constructor (value: any) {
+  value: any;
+  constructor(value: any) {
     this.value = value;
     this.next = null;
   }
 }
 
-export class Stack {
+export class Queue {
   first: any;
   last: any;
   size: number;
 
-  constructor () {
+  constructor() {
     this.first = null;
     this.last = null;
     this.size = 0;
   }
 
-  pop (): any {
-    if (!this.size || this.size === 0) return null;
-    const prevFirst = this.first;
+  dequeue(): any {
+    if (this.size <= 0) return null;
+    const returnVal = this.first;
     if (this.first === this.last) {
       this.last = null;
     }
     this.first = this.first.next;
     this.size--;
-    return prevFirst.value;
+    return returnVal.value;
   }
 
-  push (value: any) {
+  enqueue(value: any): this {
     const newNode = new Node(value);
-    if (!this.size || this.size === 0) {
+    if (this.size === 0) {
       this.first = newNode;
       this.last = newNode;
     } else {
-      newNode.next = this.first;
-      this.first = newNode;
+      this.last.next = newNode;
+      this.last = newNode;
     }
+
     this.size++;
+    return this;
   }
 }

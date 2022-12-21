@@ -1,26 +1,34 @@
 // @flow
-class Node {
-  constructor(val) {
+export class Node {
+  val: any;
+  next: any;
+  prev: any;
+
+  constructor (val: any) {
     this.val = val;
     this.next = null;
     this.prev = null;
   }
 }
 
-class DoublyLinkedLists {
-  constructor() {
+export class DoublyLinkedLists {
+  length: number;
+  head: any;
+  tail: any;
+
+  constructor () {
     this.length = 0;
     this.head = null;
     this.tail = null;
   }
 
-  get(index) {
+  get (index: number): any {
     if (index < 0 || index >= this.length) return undefined;
     let selectedNode;
     if (index > Math.floor((this.length - 1) / 2)) {
       selectedNode = this.tail;
       let currentIndex = this.length - 1;
-      while(currentIndex > index) {
+      while (currentIndex > index) {
         selectedNode = selectedNode.prev;
         currentIndex--;
       }
@@ -35,13 +43,13 @@ class DoublyLinkedLists {
     return selectedNode;
   }
 
-  insert(val, index) {
+  insert (val: any, index: number): boolean {
     if (index < 0 || index >= this.length) return false;
-    if(index === this.length - 1) {
+    if (index === this.length - 1) {
       this.push(val);
       return true;
     }
-    if(index === 0) {
+    if (index === 0) {
       this.unshift(val);
       return true;
     }
@@ -56,8 +64,8 @@ class DoublyLinkedLists {
     return true;
   }
 
-  pop() {
-    if(!this.head || !this.tail) return undefined;
+  pop (): any {
+    if (!this.head || !this.tail) return undefined;
     const removedNode = this.tail;
     if (this.length === 1) {
       this.head = null;
@@ -71,7 +79,7 @@ class DoublyLinkedLists {
     return removedNode;
   }
 
-  push(val) {
+  push (val: any): this {
     const newNode = new Node(val);
     if (this.length === 0) {
       this.head = newNode;
@@ -85,7 +93,7 @@ class DoublyLinkedLists {
     return this;
   }
 
-  remove(index) {
+  remove (index: number): any {
     if (index < 0 || index >= this.length) return undefined;
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
@@ -99,7 +107,7 @@ class DoublyLinkedLists {
     return removedNode;
   }
 
-  set(val, index) {
+  set (val: any, index: number): null | boolean {
     const node = this.get(index);
     if (!node) return null;
 
@@ -107,22 +115,22 @@ class DoublyLinkedLists {
     return true;
   }
 
-  shift() {
+  shift (): any {
     if (!this.head || this.length === 0) return undefined;
     const removedNode = this.head;
-    if(this.length === 1) {
+    if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
       this.head = removedNode.next;
       this.head.prev = null;
-      removedHead.next = null;
+      removedNode.next = null;
     }
     this.length--;
     return removedNode;
   }
 
-  unshift(val) {
+  unshift (val: any): any {
     const newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;

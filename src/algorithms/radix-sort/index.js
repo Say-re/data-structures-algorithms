@@ -1,14 +1,14 @@
 // @flow
-const getDigit = (num: Number, index: Number): Number => {
+const getDigit = (num: number, index: number): number => {
   return Math.floor(Math.abs(num) / Math.pow(10, index)) % 10;
 };
 
-const numDigitCount = (num: Number): Number => {
+const numDigitCount = (num: number): number => {
   if (num === 0) return 1;
   return Math.floor(Math.log10(Math.abs(num))) + 1;
 };
 
-const highestDigitCount = (numbers: Array<Number>): Number => {
+const highestDigitCount = (numbers: Array<number>): number => {
   let highestCount = 1;
   numbers.forEach((numb, indx) => {
     highestCount = Math.max(highestCount, numDigitCount(numb));
@@ -16,7 +16,7 @@ const highestDigitCount = (numbers: Array<Number>): Number => {
   return highestCount;
 };
 
-const radixSort = (numbers: Array<Number>): Array<Number> => {
+const radixSort = (numbers: Array<number>): Array<number> => {
   let newNumbers = numbers;
   for(let i = 0; i < highestDigitCount(newNumbers); i++) {
     let digitBuckets = Array.from({length: 10}, () => []);
