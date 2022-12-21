@@ -1,10 +1,7 @@
-/* eslint-disable max-classes-per-file */
 // @flow
 export class Node {
   val: any;
-
   next: any;
-
   prev: any;
 
   constructor (val: any) {
@@ -16,9 +13,7 @@ export class Node {
 
 export class DoublyLinkedLists {
   length: number;
-
   head: any;
-
   tail: any;
 
   constructor () {

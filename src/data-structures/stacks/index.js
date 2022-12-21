@@ -1,19 +1,26 @@
-/* eslint-disable max-classes-per-file */
+// @flow
 export class Node {
-  constructor (value) {
+  value: any;
+  next: any;
+
+  constructor (value: any) {
     this.value = value;
     this.next = null;
   }
 }
 
 export class Stack {
+  first: any;
+  last: any;
+  size: number;
+
   constructor () {
     this.first = null;
     this.last = null;
     this.size = 0;
   }
 
-  pop () {
+  pop (): any {
     if (!this.size || this.size === 0) return null;
     const prevFirst = this.first;
     if (this.first === this.last) {
@@ -24,7 +31,7 @@ export class Stack {
     return prevFirst.value;
   }
 
-  push (value) {
+  push (value: any) {
     const newNode = new Node(value);
     if (!this.size || this.size === 0) {
       this.first = newNode;
