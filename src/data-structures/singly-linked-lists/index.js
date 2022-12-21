@@ -1,19 +1,31 @@
-class Node {
-  constructor (val) {
+/* eslint-disable max-classes-per-file */
+// @flow
+export class Node {
+  val: any;
+
+  next: any;
+
+  constructor (val: any) {
     this.val = val;
     this.next = null;
   }
 }
 
-class SinglyLinkedList {
+export class SinglyLinkedList {
+  length: number;
+
+  head: any;
+
+  tail: any;
+
   constructor () {
     this.length = 0;
     this.head = null;
     this.tail = null;
   }
 
-  get(index) {
-    if (index < 0 || index >= length) return null;
+  get (index: number): null | any {
+    if (index < 0 || index >= this.length) return null;
 
     let selectedNode = this.head;
     for (let i = 0; i < index; i++) {
@@ -22,7 +34,7 @@ class SinglyLinkedList {
     return selectedNode;
   }
 
-  insert(val, index) {
+  insert (val: any, index: number): boolean {
     if (index < 0 || index > this.length) return false;
     if (index === this.length) {
       this.push(val);
@@ -34,6 +46,7 @@ class SinglyLinkedList {
     }
     const newNode = new Node(val);
     const prevValue = this.get(index - 1);
+    if (!prevValue) return false;
     const prevNextVal = prevValue.next;
     newNode.next = prevNextVal;
     prevValue.next = newNode;
@@ -41,22 +54,21 @@ class SinglyLinkedList {
     return true;
   }
 
-  pop(val) {
+  pop (): any {
     if (!this.head) return undefined;
-    const tail = this.tail;
     let currentNode = this.head;
     let nextTail = currentNode;
     while (currentNode.next) {
       nextTail = currentNode;
       currentNode = currentNode.next;
     }
-    this.tail = pre;
+    this.tail = nextTail;
     this.tail.next = null;
     this.length--;
     return currentNode;
   }
 
-  push(val) {
+  push (val: any) {
     const node = new Node(val);
     if (!this.head) {
       this.head = node;
@@ -68,24 +80,25 @@ class SinglyLinkedList {
     this.length++;
   }
 
-  remove(index) {
+  remove (index: number): any {
     if (index < 0 || index >= this.length) return undefined;
 
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
 
     const node = this.get(index - 1);
+    if (!node) return null;
     const removedNode = node.next;
     node.next = removedNode.next;
     this.length--;
     return removedNode;
   }
 
-  reverse() {
+  reverse (): any {
     if (!this.head) return undefined;
     let currentNode = this.head;
     this.head = this.tail;
-    this.tail = currentNode
+    this.tail = currentNode;
     let next;
     let prev = null;
     for (let i = 0; i < this.length; i++) {
@@ -97,7 +110,7 @@ class SinglyLinkedList {
     return this;
   }
 
-  set(val, index) {
+  set (val: any, index: number): null | boolean {
     const node = this.get(index);
     if (!node) return null;
 
@@ -105,7 +118,7 @@ class SinglyLinkedList {
     return true;
   }
 
-  shift() {
+  shift (): any {
     if (!this.head) return undefined;
 
     const prevHead = this.head;
@@ -115,9 +128,9 @@ class SinglyLinkedList {
     return prevHead;
   }
 
-  unshift(val) {
+  unshift (val: any): any {
     const newNode = new Node(val);
-    if(!this.head) {
+    if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
     }
