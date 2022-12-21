@@ -36,7 +36,7 @@ class SinglyLinkedList {
     const prevValue = this.get(index - 1);
     const prevNextVal = prevValue.next;
     newNode.next = prevNextVal;
-    prevValue.next(newNode);
+    prevValue.next = newNode;
     this.length++;
     return true;
   }
@@ -74,7 +74,7 @@ class SinglyLinkedList {
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
 
-    const node = this.get(inde - 1);
+    const node = this.get(index - 1);
     const removedNode = node.next;
     node.next = removedNode.next;
     this.length--;
@@ -89,7 +89,7 @@ class SinglyLinkedList {
     let next;
     let prev = null;
     for (let i = 0; i < this.length; i++) {
-      let next = currentNode.next;
+      next = currentNode.next;
       currentNode.next = prev;
       prev = currentNode;
       currentNode = next;
