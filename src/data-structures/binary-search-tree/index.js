@@ -29,7 +29,7 @@ export class BinarySearchTree {
 
   find (val: number): boolean | NodeClass {
     if (this.root === null) return false;
-    const traverseTree = (value: number, comparisonNode: NodeClass): boolean | NodeClass => {
+    const traverseTree = (value: number, comparisonNode: NodeClass | null): boolean | NodeClass => {
       if (!value || !comparisonNode) return false;
       if (value === comparisonNode.value) return comparisonNode;
       if ((value < comparisonNode.value && !comparisonNode.left) || (value > comparisonNode.value && !comparisonNode.right)) {
@@ -38,10 +38,7 @@ export class BinarySearchTree {
       if (value < comparisonNode.value && comparisonNode.left) {
         return traverseTree(value, comparisonNode.left);
       }
-      if (value > comparisonNode.value && comparisonNode.right) {
-        return traverseTree(value, comparisonNode.right);
-      }
-      return false;
+      return traverseTree(value, comparisonNode.right ? comparisonNode.right : null);
     };
     return traverseTree(val, this.root);
   }
@@ -52,7 +49,6 @@ export class BinarySearchTree {
       this.root = newNode;
     } else {
       const traverseTree = (node: NodeClass, comparisonNode: NodeClass): null => {
-        if (!node || !comparisonNode) return null;
         if (node.value < comparisonNode.value && !comparisonNode.left) {
           comparisonNode.left = node;
           return null;
