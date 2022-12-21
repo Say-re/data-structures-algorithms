@@ -34,10 +34,8 @@
 #### ***General functionality***
 > *Upon calling the insert method, the value given will be compared to the current nodes in the tree and be inserted based on it's relationship to those values (greater than or less than).*
 
-## ***Section 2 - Big O notation***
+## ***Section 2 - Big O notation (best case)***
 
 ### ***2.1 - Access, insertion, removal, and searching***
-> *Access* - O(N)
-> *Insertion* - O(1)
-> *Removal* - O(1)
-> *Searching* - O(N)
+> *Insertion* - O(log n)
+> *Searching* - O(log n)
