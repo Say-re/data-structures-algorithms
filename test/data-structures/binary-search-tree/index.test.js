@@ -33,6 +33,21 @@ describe('src/data-structures/binary-search-tree/index.js', () => {
     response = sampleBTS.find(1222);
     expect(response).toEqual(false);
   });
+  it('Verifies breadthFirstSearch functionality for BinarySearchTree instances', () => {
+    const sampleBTS = new BinarySearchTree();
+    sampleBTS.insert(38947);
+    sampleBTS.insert(34984);
+    sampleBTS.insert(4);
+    sampleBTS.insert(12);
+    sampleBTS.insert(24);
+
+    let response = sampleBTS.breadthFirstSeach();
+    expect(response).toEqual([ 38947, 34984, 4, 12, 24 ]);
+
+    const nullBTS = new BinarySearchTree();
+    response = nullBTS.breadthFirstSeach();
+    expect(response).toEqual([]);
+  });
   it('Verifies null response for BinarySearchTree methods', () => {
     // Searching on a tree with no nodes
     const sampleBTS = new BinarySearchTree();
