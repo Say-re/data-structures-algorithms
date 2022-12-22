@@ -41,6 +41,18 @@ export class BinarySearchTree {
     return treeValues;
   }
 
+  depthFirstPostOrder (): Array<number> {
+    if (!this.root) return [];
+    const treeValues = [];
+    const traverse = (node: NodeClass) => {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      treeValues.push(node.value);
+    };
+    traverse(this.root);
+    return treeValues;
+  }
+
   depthFirstPreOrder (): Array<number> {
     if (!this.root) return [];
     const treeValues = [];
