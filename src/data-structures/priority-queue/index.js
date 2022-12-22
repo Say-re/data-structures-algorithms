@@ -1,61 +1,72 @@
 // @flow
 
-export class MaxBinaryHeap {
-  values: Array<number>;
+export class Node {
+  value: any;
+  priority: number;
+  constructor (val: any, priority: number) {
+    this.value = val;
+    this.priority = priority;
+  }
+}
+
+export class PriorityQueue {
+  values: Array<Node>;
   constructor () {
     this.values = [];
   }
 
   bubbleUp (index: number, parentIndex: number): null {
-    if (this.values[parentIndex] >= this.values[index] || parentIndex < 0) return null;
+    if (parentIndex < 0 || this.values[parentIndex].priority <= this.values[index].priority) return null;
     const temp = this.values[parentIndex];
     this.values[parentIndex] = this.values[index];
     this.values[index] = temp;
 
     const newIndex = parentIndex;
-    const newParentIndex = Math.floor((newIndex - 1) / 2);
+    const newParentIndex = Math.floor(newIndex - 1) / 2;
     return this.bubbleUp(newIndex, newParentIndex);
   }
 
-  insert (value: number): Array<number> {
-    this.values.push(value);
+  enqueue (value: any, priority: number): Array<Node> {
+    const newNode = new Node(value, priority);
+    this.values.push(newNode);
     if (this.values.length === 1) return this.values;
 
-    const indx = this.values.length - 1;
-    const parentIndx = Math.floor((indx - 1) / 2);
+    const index = this.values.length - 1;
+    const parentIndex = Math.floor((index - 1) / 2);
 
-    this.bubbleUp(indx, parentIndx);
+    this.bubbleUp(index, parentIndex);
     return this.values;
   }
 
   pushDown (parentIndex: number, childIndexL: number, childIndexR: number): null {
-    const parentValue = this.values[parentIndex];
+    const parentNode = this.values[parentIndex];
     const childLeft = this.values[childIndexL];
     const childRight = this.values[childIndexR];
     let newParentIndex = null;
-    if ((!childLeft || childLeft === -1 || parentValue > childLeft) && (!childRight || childRight === -1 || parentValue > childRight)) return null;
+    if ((!childLeft || childLeft.priority === -1 || parentNode.priority < childLeft.priority) && (!childRight || childRight.priority === -1 || parentNode.priority < childRight.priority)) return null;
 
-    if (parentValue < childLeft) {
+    if (parentNode.priority > childLeft.priority) {
       this.values[parentIndex] = childLeft;
       newParentIndex = childIndexL;
     }
-    if (parentValue < childRight && (newParentIndex === null || childLeft < childRight)) {
+
+    if (parentNode.priority > childRight.priority && (newParentIndex === null || childLeft.priority > childRight.priority)) {
       this.values[parentIndex] = childRight;
       newParentIndex = childIndexR;
     }
 
     if (!newParentIndex) return null;
 
-    this.values[newParentIndex] = parentValue;
+    this.values[newParentIndex] = parentNode;
     const newChildIndexL = (newParentIndex * 2) + 1;
     const newChildIndexR = (newParentIndex * 2) + 2;
     return this.pushDown(newParentIndex, newChildIndexL, newChildIndexR);
   }
 
-  extractMax (): ?number {
+  dequeue (): ?Node {
     if (!this.values || this.values.length < 1) return undefined;
     if (this.values.length === 1) return this.values.pop();
-    const returnedVal = this.values[0];
+    const highestPriorityItem = this.values[0];
     this.values[0] = this.values.pop();
 
     const parentIndex = 0;
@@ -63,8 +74,8 @@ export class MaxBinaryHeap {
     const childIndexR = (parentIndex * 2) + 2;
     this.pushDown(parentIndex, childIndexL, childIndexR);
 
-    return returnedVal;
+    return highestPriorityItem;
   }
 }
 
-export default MaxBinaryHeap;
+export default PriorityQueue;
