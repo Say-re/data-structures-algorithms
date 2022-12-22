@@ -27,6 +27,56 @@ export class BinarySearchTree {
     this.root = null;
   }
 
+  breadthFirstSeach (): Array<number> {
+    if (!this.root) return [];
+    const queue = [];
+    const treeValues = [];
+    queue.push(this.root);
+    while (queue.length > 0) {
+      const tempNode = queue.shift();
+      treeValues.push(tempNode.value);
+      if (tempNode.left) queue.push(tempNode.left);
+      if (tempNode.right) queue.push(tempNode.right);
+    }
+    return treeValues;
+  }
+
+  depthFirstInOrder (): Array<number> {
+    if (!this.root) return [];
+    const treeValues = [];
+    const traverse = (node: NodeClass) => {
+      if (node.left) traverse(node.left);
+      treeValues.push(node.value);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    return treeValues;
+  }
+
+  depthFirstPostOrder (): Array<number> {
+    if (!this.root) return [];
+    const treeValues = [];
+    const traverse = (node: NodeClass) => {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      treeValues.push(node.value);
+    };
+    traverse(this.root);
+    return treeValues;
+  }
+
+  depthFirstPreOrder (): Array<number> {
+    if (!this.root) return [];
+    const treeValues = [];
+    const traverse = (node: NodeClass) => {
+      treeValues.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    return treeValues;
+  }
+
   find (val: number): boolean | NodeClass {
     if (this.root === null) return false;
     const traverseTree = (value: number, comparisonNode: NodeClass | null): boolean | NodeClass => {
