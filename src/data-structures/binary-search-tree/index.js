@@ -30,15 +30,15 @@ export class BinarySearchTree {
   breadthFirstSeach (): Array<number> {
     if (!this.root) return [];
     const queue = [];
-    const visited = [];
+    const treeValues = [];
     queue.push(this.root);
     while (queue.length > 0) {
       const tempNode = queue.shift();
-      visited.push(tempNode.value);
+      treeValues.push(tempNode.value);
       if (tempNode.left) queue.push(tempNode.left);
       if (tempNode.right) queue.push(tempNode.right);
     }
-    return visited;
+    return treeValues;
   }
 
   find (val: number): boolean | NodeClass {
