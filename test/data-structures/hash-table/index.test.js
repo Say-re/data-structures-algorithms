@@ -41,4 +41,22 @@ describe('src/data-structures/hash-table/index.js', () => {
     expect(response)
       .toEqual(undefined);
   });
+  it('Verifies functionality of keys method, which retreives all keys in the HashTable instance', () => {
+    const sampleHashTable = new HashTable(10);
+    sampleHashTable._set('blueCarbon', 'Some notes on Blue Carbon');
+    sampleHashTable._set('climateChange', 'Additional Notes on climate');
+
+    const keys = sampleHashTable._keys();
+    expect(keys)
+      .toEqual([ 'blueCarbon', 'climateChange' ]);
+  });
+  it('Verifies functionality of values method, which retreives all keys in the HashTable instance', () => {
+    const sampleHashTable = new HashTable(10);
+    sampleHashTable._set('blueCarbon', 'Some notes on Blue Carbon');
+    sampleHashTable._set('climateChange', 'Additional Notes on climate');
+
+    const keys = sampleHashTable._values();
+    expect(keys)
+      .toEqual([ 'blueCarbon', 'climateChange' ]);
+  });
 });
