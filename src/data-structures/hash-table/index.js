@@ -16,6 +16,47 @@ export class HashTable {
     return total;
   }
 
+  _getValue (value: Array<any>, index: number, type: string): ?string {
+    let returnValue;
+    if (value[index]) {
+      console.log('value', value[index]);
+      switch (type) {
+        case 'value':
+          [ , returnValue ] = value[index];
+          break;
+        case 'key':
+        default:
+          [returnValue] = value[index];
+          break;
+      }
+    }
+    console.log('Returnvalue', returnValue);
+    return returnValue;
+  }
+
+  _iterateThroughHash (value: Array<any>, type: string): ?Array<?any> {
+    const values = [];
+    let returnValue;
+    for (let i = 0; i < value.length; i++) {
+      if (value[i] && Array.isArray(value[i]) && Array.isArray(value[i][0])) {
+        for (let j = 0; j < value[i].length; j++) {
+          returnValue = this._getValue(value[i], j, type);
+          if (returnValue && (type === 'keys' && !values.includes(returnValue))) values.push(returnValue);
+        }
+        returnValue = null;
+      } else {
+        returnValue = this._getValue(value, i, type);
+      }
+
+      if (returnValue && (type === 'keys' && !values.includes(returnValue))) values.push(returnValue);
+    }
+    return values;
+  }
+
+  _keys (): ?Array<?string> {
+    return this._iterateThroughHash(this.keyMap, 'keys');
+  }
+
   _get (key: string): ?Array<any> {
     const hashValue = this._hash(key);
     const storedValues = this.keyMap[hashValue];
@@ -34,6 +75,10 @@ export class HashTable {
     }
     this.keyMap[hashValue].push([ key, value ]);
     return null;
+  }
+
+  _values (): ?Array<?string> {
+    return this._iterateThroughHash(this.keyMap, 'value');
   }
 }
 
