@@ -97,6 +97,7 @@
     "no-dupe-else-if": [
       2
     ],
+    "no-underscore-dangle": 0,
     "no-unreachable": [
       2
     ],
