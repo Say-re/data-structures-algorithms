@@ -19,7 +19,6 @@ export class HashTable {
   _getValue (value: Array<any>, index: number, type: string): ?string {
     let returnValue;
     if (value[index]) {
-      console.log('value', value[index]);
       switch (type) {
         case 'value':
           [ , returnValue ] = value[index];
@@ -30,7 +29,6 @@ export class HashTable {
           break;
       }
     }
-    console.log('Returnvalue', returnValue);
     return returnValue;
   }
 

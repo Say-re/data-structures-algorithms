@@ -1,32 +1,33 @@
+// @flow
 type PivotHelperProps = {
   arr: Array<number>,
-  endIndex: Number,
-  startIndex: Number,
+  endIndex: number,
+  startIndex: number,
 }
 
 type QuickSortProps = {
-  arr: Array<Number>,
-  left: Number,
-  right: Number,
+  arr: Array<number>,
+  left: number,
+  right: number,
 }
 
 export const pivotHelper = ({
   arr,
-  endIndex = arr.length + 1,
+  endIndex = (arr && arr.length) ? arr.length + 1 : 0,
   startIndex = 0,
-}: PivotHelperProps): Number | null => {
-  if (!arr || !endIndex || !startIndex || arr.length < 2) return null;
+}: PivotHelperProps): number | null => {
+  if (!arr || !endIndex || (!startIndex && startIndex !== 0) || arr.length < 2) return null;
   const swap = (array, i, j) => {
-    const temp  = array[i];
+    const temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-  }
+  };
 
   const pivotVal = arr[startIndex];
   let pivotIndex = startIndex;
   for (let i = startIndex + 1; i < arr.length; i++) {
     if (pivotVal > arr[i]) {
-      pivotIndex ++;
+      pivotIndex++;
       swap(arr, i, pivotIndex);
     }
   }
@@ -38,13 +39,15 @@ export const quickSort = ({
   arr,
   left = 0,
   right = arr.length - 1,
-}) => {
+}: QuickSortProps): Array<number> => {
   if (left < right) {
-    let pivotIndex = pivot({ arr, startIndex: left, endIndex: right });
-    // Sort Left side of remaining array
-    quickSort({ arr, left, right: pivotIndex - 1 });
-    // Sort right side of remaining array
-    quickSort({ arr, left: pivotIndex + 1, right });
+    const pivotIndex = pivotHelper({ arr, startIndex: left, endIndex: right });
+    if (pivotIndex) {
+      // Sort Left side of remaining array
+      quickSort({ arr, left, right: pivotIndex - 1 });
+      // Sort right side of remaining array
+      quickSort({ arr, left: pivotIndex + 1, right });
+    }
   }
   return arr;
 };
