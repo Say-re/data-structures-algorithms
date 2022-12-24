@@ -31,7 +31,7 @@ export class SinglyLinkedList {
   }
 
   insert (val: any, index: number): boolean {
-    if (index < 0 || index > this.length) return false;
+    if (index < 0 || index >= this.length) return false;
     if (index === this.length) {
       this.push(val);
       return true;
@@ -130,7 +130,6 @@ export class SinglyLinkedList {
       this.head = newNode;
       this.tail = this.head;
     }
-
     const prevHead = this.head;
     this.head = newNode;
     this.head.next = prevHead;
