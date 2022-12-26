@@ -32,7 +32,20 @@ describe('src/data-structures/binary-heap/index.js', () => {
     sampleHead.insert(20);
     sampleHead.insert(15);
     const response = sampleHead.extractMax();
-    expect(response).toEqual(32);
-    expect(sampleHead.values).toEqual([ 22, 20, 15, 10 ]);
+    expect(response)
+      .toEqual(32);
+    expect(sampleHead.values)
+      .toEqual([ 22, 20, 15, 10 ]);
+  });
+  it('Verifies edge case handling of extractMax method', () => {
+    const sampleHeap = new MaxBinaryHeap();
+    let response = sampleHeap.extractMax();
+    expect(response)
+      .toEqual(undefined);
+
+    sampleHeap.insert(2000);
+    response = sampleHeap.extractMax();
+    expect(response)
+      .toEqual(2000);
   });
 });

@@ -9,8 +9,9 @@ export class WeightedGraph {
     this.adjacencyList = {};
   }
 
-  addVertex (vertex: string) {
+  addVertex (vertex: string): AdjacencyListProps {
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    return this.adjacencyList;
   }
 
   addEdge (vertex1: string, vertex2: string, weight: number): ?AdjacencyListProps {

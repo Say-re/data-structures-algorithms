@@ -31,7 +31,7 @@ export class SinglyLinkedList {
   }
 
   insert (val: any, index: number): boolean {
-    if (index < 0 || index >= this.length) return false;
+    if (index < 0 || index > this.length) return false;
     if (index === this.length) {
       this.push(val);
       return true;

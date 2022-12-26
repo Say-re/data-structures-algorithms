@@ -5,8 +5,6 @@ describe('src/data-structures/singly-linked-lists/index.js', () => {
     const sampleNode = new Node(900);
     expect(sampleNode.val)
       .toEqual(900);
-    expect(sampleNode.prev)
-      .toEqual(null);
     expect(sampleNode.next)
       .toEqual(null);
   });
@@ -15,8 +13,6 @@ describe('src/data-structures/singly-linked-lists/index.js', () => {
     expect(sampleSinglyLinkedList.length)
       .toEqual(0);
     expect(sampleSinglyLinkedList.next)
-      .toEqual(null);
-    expect(sampleSinglyLinkedList.prev)
       .toEqual(null);
   });
   it('Verifies functionality of method - Get - for SinglyLinkedLists', () => {
@@ -44,11 +40,21 @@ describe('src/data-structures/singly-linked-lists/index.js', () => {
     response = sampleSinglyLinkedList.insert(-200, 200);
     expect(response).toEqual(false);
 
-    // Successful response
+    // Successful response at beginning of SinglyLinkedList
     sampleSinglyLinkedList.push(200);
     sampleSinglyLinkedList.insert(192, 0);
     response = sampleSinglyLinkedList.get(0);
     expect(response.val).toEqual(192);
+
+    // Successful response to insert at end of SinglyLinkedList
+    sampleSinglyLinkedList.insert(89, 2);
+    response = sampleSinglyLinkedList.get(2);
+    expect(response.val).toEqual(89);
+
+    // Successful response to isnert in middle of SinglyLinkedList
+    sampleSinglyLinkedList.insert(100, 2);
+    response = sampleSinglyLinkedList.get(2);
+    expect(response.val).toEqual(100);
   });
   it('Verifies functionality of method - Pop - for SinglyLinkedLists', () => {
     const sampleSinglyLinkedList = new SinglyLinkedList();
@@ -87,6 +93,17 @@ describe('src/data-structures/singly-linked-lists/index.js', () => {
     sampleSinglyLinkedList.push(300);
     response = sampleSinglyLinkedList.remove(0);
     expect(response.val).toEqual(200);
+
+    // Successful response to remove last item from SinglyLinkedList
+    sampleSinglyLinkedList.push(500);
+    sampleSinglyLinkedList.push(600);
+    sampleSinglyLinkedList.push(700);
+    response = sampleSinglyLinkedList.remove(4);
+    expect(response.val).toEqual(700);
+
+    // Successful response to remove item in middle of SinglyLinkedList
+    response = sampleSinglyLinkedList.remove(2);
+    expect(response.val).toEqual(500);
   });
   it('Verifies functionality of method - Reverse - for SinglyLinkedLists', () => {
     const sampleSinglyLinkedList = new SinglyLinkedList();
@@ -116,6 +133,11 @@ describe('src/data-structures/singly-linked-lists/index.js', () => {
     response = sampleSinglyLinkedList.set(123, 1);
     expect(response).toEqual(true);
     expect(sampleSinglyLinkedList.get(1).val).toEqual(123);
+  });
+  it('Verifies error response of reverse method if no head is present for SinglyLinkedList', () => {
+    const sampleSinglyLinkedList = new SinglyLinkedList();
+    const response = sampleSinglyLinkedList.reverse();
+    expect(response).toEqual(undefined);
   });
   it('Verifies functionality of method - Shift - for SinglyLinkedLists', () => {
     const sampleSinglyLinkedList = new SinglyLinkedList();
