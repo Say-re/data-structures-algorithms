@@ -43,8 +43,8 @@ describe('src/data-structures/hash-table/index.js', () => {
   });
   it('Verifies functionality of keys method, which retreives all keys in the HashTable instance', () => {
     const sampleHashTable = new HashTable(10);
-    sampleHashTable._set('blueCarbon', 'Some notes on Blue Carbon');
-    sampleHashTable._set('climateChange', 'Additional Notes on climate');
+    sampleHashTable._set('blueCarbon', 'Some notes on Blue Carbon!!');
+    sampleHashTable._set('climateChange', 'Additional Notes on climate change');
 
     const keys = sampleHashTable._keys();
     expect(keys)
@@ -57,6 +57,9 @@ describe('src/data-structures/hash-table/index.js', () => {
 
     const keys = sampleHashTable._values();
     expect(keys)
-      .toEqual([ 'blueCarbon', 'climateChange' ]);
+      .toEqual([
+        'Some notes on Blue Carbon',
+        'Additional Notes on climate',
+      ]);
   });
 });

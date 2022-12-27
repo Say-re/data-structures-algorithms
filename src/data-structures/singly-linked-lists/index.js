@@ -130,7 +130,6 @@ export class SinglyLinkedList {
       this.head = newNode;
       this.tail = this.head;
     }
-
     const prevHead = this.head;
     this.head = newNode;
     this.head.next = prevHead;
