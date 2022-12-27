@@ -1,4 +1,4 @@
-# ***Stacks***
+# ***Queues***
 
 ## ***Description***
 > A queue is an abstract data structure/collection that follows the paradigm of FIFO (first in first out). To accomplish this each instance of a stack is assigned 3 properties (first, last, and size), and has two methods available, enqueue - to add new elements to the stack, and dequeue to remove elements from the stack. Common utilizations for stacks include management of document uploading/downloading, , maintaining a playlist, printing documents, the list goes on.
