@@ -1,5 +1,4 @@
 // @flow
-
 export class HashTable {
   keyMap: Array<any>;
   constructor (size: number = 61) {
@@ -39,20 +38,20 @@ export class HashTable {
       if (value[i] && Array.isArray(value[i]) && Array.isArray(value[i][0])) {
         for (let j = 0; j < value[i].length; j++) {
           returnValue = this._getValue(value[i], j, type);
-          if (returnValue && (type === 'keys' && !values.includes(returnValue))) values.push(returnValue);
+          if (returnValue && (!values.includes(returnValue))) values.push(returnValue);
         }
         returnValue = null;
       } else {
         returnValue = this._getValue(value, i, type);
       }
 
-      if (returnValue && (type === 'keys' && !values.includes(returnValue))) values.push(returnValue);
+      if (returnValue && (!values.includes(returnValue))) values.push(returnValue);
     }
     return values;
   }
 
   _keys (): ?Array<?string> {
-    return this._iterateThroughHash(this.keyMap, 'keys');
+    return this._iterateThroughHash(this.keyMap, 'key');
   }
 
   _get (key: string): ?Array<any> {
@@ -76,7 +75,7 @@ export class HashTable {
   }
 
   _values (): ?Array<?string> {
-    return this._iterateThroughHash(this.keyMap, 'value');
+    return this._iterateThroughHash(this.keyMap.filter((k) => k.length > 0), 'value');
   }
 }
 

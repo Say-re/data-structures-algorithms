@@ -12,7 +12,9 @@ describe('src/data-structures/singly-linked-lists/index.js', () => {
     const sampleSinglyLinkedList = new SinglyLinkedList();
     expect(sampleSinglyLinkedList.length)
       .toEqual(0);
-    expect(sampleSinglyLinkedList.next)
+    expect(sampleSinglyLinkedList.head)
+      .toEqual(null);
+    expect(sampleSinglyLinkedList.tail)
       .toEqual(null);
   });
   it('Verifies functionality of method - Get - for SinglyLinkedLists', () => {
