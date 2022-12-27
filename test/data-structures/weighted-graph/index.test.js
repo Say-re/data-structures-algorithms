@@ -37,4 +37,25 @@ describe('src/data-structures/weighted-graph/index.js', () => {
     expect(response)
       .toEqual(undefined);
   });
+  it("Verifies successful response from Dijkstra's algorithm", () => {
+    const sampleWeightedGraph = new WeightedGraph();
+    sampleWeightedGraph.addVertex('A');
+    sampleWeightedGraph.addVertex('B');
+    sampleWeightedGraph.addVertex('C');
+    sampleWeightedGraph.addVertex('D');
+    sampleWeightedGraph.addVertex('E');
+    sampleWeightedGraph.addVertex('F');
+
+    sampleWeightedGraph.addEdge('A', 'B', 4);
+    sampleWeightedGraph.addEdge('A', 'C', 2);
+    sampleWeightedGraph.addEdge('B', 'E', 3);
+    sampleWeightedGraph.addEdge('C', 'D', 2);
+    sampleWeightedGraph.addEdge('C', 'F', 4);
+    sampleWeightedGraph.addEdge('D', 'E', 3);
+    sampleWeightedGraph.addEdge('D', 'F', 1);
+    sampleWeightedGraph.addEdge('E', 'F', 1);
+
+    const shortestPath = sampleWeightedGraph.DijkstrasAlgorithm('A', 'E');
+    expect(shortestPath).toEqual([ 'A', 'C', 'D', 'F', 'E' ]);
+  });
 });

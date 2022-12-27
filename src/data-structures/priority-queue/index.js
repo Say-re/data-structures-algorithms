@@ -22,7 +22,7 @@ export class PriorityQueue {
     this.values[index] = temp;
 
     const newIndex = parentIndex;
-    const newParentIndex = Math.floor(newIndex - 1) / 2;
+    const newParentIndex = Math.floor((newIndex - 1) / 2);
     return this.bubbleUp(newIndex, newParentIndex);
   }
 
@@ -43,7 +43,7 @@ export class PriorityQueue {
     const childLeft = this.values[childIndexL];
     const childRight = this.values[childIndexR];
     let newParentIndex = null;
-    if ((!childLeft || childLeft.priority === -1 || parentNode.priority < childLeft.priority) && (!childRight || childRight.priority === -1 || parentNode.priority < childRight.priority)) return null;
+    if ((!childLeft || childLeft.priority === -1 || parentNode.priority <= childLeft.priority) && (!childRight || childRight.priority === -1 || parentNode.priority <= childRight.priority)) return null;
 
     if (parentNode.priority > childLeft.priority) {
       this.values[parentIndex] = childLeft;
