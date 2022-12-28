@@ -1,7 +1,7 @@
 # ***Priority Queue***
 
 ## ***Description***
-> A priority queue is an abstract data structure/collection that follows the paradigm of highest priority (lowest number in our instance) first out and functions by assigning a priority value to each entry and building the tree based on how prioritys compare to one another. To accomplish this each instance of a priority queue is assigned a single property of 'values', and has two methods available, enqueue - to add new elements to the queue, and dequeue to remove elements from the queue. Adding elements to the queue will bubble up based on the priority assigned while removing elements will rearrange the queue based on the remaining priorities in the queue.
+> This priority queue was implemented using a minimum binary heap that follows the paradigm of highest priority (lowest number in our instance) first out and functions by assigning a priority value to each entry and building the tree based on how prioritys compare to one another. To accomplish this each instance of a priority queue is assigned a single property of 'values', and has two methods available, enqueue - to add new elements to the queue, and dequeue to remove elements from the queue. Adding elements to the queue will bubble up based on the priority assigned while removing elements will rearrange the queue based on the remaining priorities of the values left in the queue.
 
 ## ***Important Terminology***
   *Node*: Any given element within the stack; Synonymous with element.
