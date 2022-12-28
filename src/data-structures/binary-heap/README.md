@@ -1,4 +1,4 @@
-# ***Priority Queue***
+# ***Binary Heap***
 
 ## ***Description***
 > This binary heap was implemented as a maximum binary heap that follows the paradigm of highest values are the first out and functions by building the tree based on how each value compares to one another. To accomplish this each instance of a binary heap has two methods available, enqueue - to add new elements to the queue, and dequeue to remove elements from the queue. Adding elements to the queue will bubble up based on the value assigned to the node while removing elements will rearrange the heap based on the remaining values of the nodes left in the queue.
