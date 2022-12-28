@@ -32,57 +32,20 @@
 
 #### ***General Description***
 > Adds a new vertex to the graph
-### ***1.3 _BreadthFirstIterative***
+
+### ***1.3 DijkstrasAlgorithm***
 
 #### Parameters
-  - start - Vertex of weighted graph to begin traversal at
+  - startVertex - vertex to act as beginning anchor for finding shortest path to
+  - endVertex - destination vertex
 
 #### Return values
-  - An array of every vertex in the graphs value
+  - Array of vertices that show the shortest path from the startVertex to the endVertex
 
 #### ***General Description***
-> Iterates through all vertices in the graph through an iterative breadth first approach
-### ***1.4 _DepthFirstIterative***
+> Adds a new vertex to the graph
 
-#### Parameters
-  - start - Vertex of weighted graph to begin traversal at
 
-#### Return values
-  - An array of every vertex in the graphs value
-
-#### ***General Description***
->  Iterates through all the vertices in the graph through an iterative depth first approach
-### ***1.5 _DepthFirstRecursive***
-
-#### Parameters
-  - start - Vertex of weighted graph to begin traversal at
-
-#### Return values
-  - An array of every vertex in the graphs value
-
-#### ***General Description***
-> Recursively traverses all the vertices in the graph through a depth first approach
-### ***1.6 removeEdge***
-
-#### Parameters
-  - vertex1 - First vertex to remove a connection between
-  - vertex2 - Second vertex to remove a connection between
-
-#### Return values
-  - The current adjacency list after the edge is removed from vertex1 and vertex2
-
-#### ***General Description***
-> 
-### ***1.7 removeVertex***
-
-#### Parameters
-  - vertex - node to remove from the graph
-
-#### Return values
-  - The current adjacency list after the vertex is removed
-
-#### ***General Description***
-> Removes a given vertex from the graph and return the remaining adjacency list of the graph.
 
 
 ## ***Section 2 - Big O notation***
